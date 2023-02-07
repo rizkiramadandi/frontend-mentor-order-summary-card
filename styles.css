@@ -1,0 +1,156 @@
+:root {
+    --mobile: 375px;
+    --desktop: 1440px;
+
+    --white: #FFF;
+    --pale-blue: hsl(225, 100%, 94%);
+    --bright-blue: hsl(245, 75%, 52%);
+
+    --very-pale-blue: hsl(225, 100%, 98%);
+    --desaturated-blue: hsl(224, 23%, 55%);
+    --dark-blue: hsl(223, 47%, 23%);
+
+    --font-size: 16px;
+
+    --font-family: 'Red Hat Display', sans-serif;
+    --weights-thin: 500;
+    --weights-normal: 700;
+    --weights-bold: 900;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+footer {
+    margin: 1rem;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: var(--pale-blue);
+    position: relative;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url("images/pattern-background-mobile.svg");
+    background-size: cover;
+    z-index: -1;
+}
+
+main {
+    margin: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    body::before {
+        background-image: url("images/pattern-background-desktop.svg") !important;
+    }
+}
+
+.card {
+    margin: 1rem auto;
+    background-color: var(--white);
+    max-width: var(--mobile);
+    border-radius: 1rem;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .25);
+}
+
+img {
+    max-width: 100%;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-weight: var(--weights-bold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-subtitle {
+    color: var(--desaturated-blue);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+    background-color: var(--very-pale-blue);
+    border-radius: .5rem;
+    padding: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.card-info #plan {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    justify-content: space-around;
+}
+
+.card-info #info {
+    display: flex;
+}
+
+.card-info #plan-type {
+    font-weight: var(--weights-bold);
+}
+
+.card-info #price {
+    color: var(--desaturated-blue);
+}
+
+button {
+    border: none;
+    text-align: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 100%;
+    margin: .5rem 0;
+    font-weight: var(--weights-normal);
+    transition: .25s;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button#payment {
+    background-color: var(--bright-blue);
+    color: var(--white);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .25);
+}
+
+button#cancel {
+    color: var(--desaturated-blue);
+    background: none;
+}
+
+button#payment:hover {
+    color: var(--bright-blue);
+    background-color: var(--white);
+}
+
+button#cancel:hover {
+    color: var(--white);
+    background-color: var(--desaturated-blue);
+}
